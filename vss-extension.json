@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "url-field-plus",
   "publisher": "McHale",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "name": "URL Field +",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
   "public": true,
@@ -72,7 +72,7 @@
                   {
                       "id": "Url",
                       "name": "URL",
-                      "description": "Provide an URL for a new link. Use {field} to include a value from a field selected below.",
+                      "description": "Static URL (https://example.com) OR Dynamic URL with {field} placeholder (https://example.com/{field}) OR {field} for editable/manual URLs. The {field} placeholder will be replaced with the value from the Field parameter below.",
                       "validation": {
                           "dataType": "String",
                           "isRequired": true
@@ -90,7 +90,7 @@
                   {
                       "id": "Field",
                       "name": "Field",
-                      "description": "Select a field for a variable to be used in URL building. For editable URLs, use a multi-line text field to avoid 255 character limit.",
+                      "description": "REQUIRED for dynamic URLs (with {field}), editable URLs, or manual URLs. OPTIONAL only for static URLs. For editable URLs, use a multi-line text field to support long URLs without the 255 character limit.",
                       "type": "WorkitemField",
                       "properties": {
                           "workItemFieldTypes": ["String", "Integer", "Double", "PlainText", "HTML"]
