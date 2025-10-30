@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>URL Field +</title>
+    <link rel="stylesheet" href="urlFieldControl.css">
 </head>
 
 <body>
@@ -20,18 +21,24 @@
 	
 	<script src="urlFieldControl.js"></script>
     
-    <div id="container" style="width: 100%;">
+    <div id="container">
         <!-- Viewing mode: Link + Edit button -->
-        <div id="viewMode" style="display: none;">
-            <a id="urlField" target="_blank" style="padding-left: 6px; color: #0078d4; text-decoration: underline; cursor: pointer; display: inline-block;"></a>
-            <button id="editButton" style="margin-left: 8px; padding: 2px 8px; font-size: 12px; border: 1px solid #ccc; background: #f3f3f3; cursor: pointer; border-radius: 2px;">Edit</button>
+        <div id="viewMode" class="url-field" style="display: none;">
+            <a id="urlField" class="url-text" target="_blank" rel="noopener noreferrer"></a>
+            <div class="actions">
+                <button id="editButton" class="btn" type="button">Edit</button>
+            </div>
         </div>
 
         <!-- Editing mode: Input + Save/Cancel buttons -->
-        <div id="editMode" style="display: none;">
-            <input id="urlInput" type="text" placeholder="Enter URL..." style="width: 70%; padding: 4px 6px; box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 4px;" />
-            <button id="saveButton" style="margin-left: 4px; padding: 4px 12px; font-size: 12px; border: 1px solid #0078d4; background: #0078d4; color: white; cursor: pointer; border-radius: 2px;">Save</button>
-            <button id="cancelButton" style="margin-left: 4px; padding: 4px 12px; font-size: 12px; border: 1px solid #ccc; background: #f3f3f3; cursor: pointer; border-radius: 2px;">Cancel</button>
+        <div id="editMode" class="url-field" style="display: none;">
+            <div class="url-input">
+                <input id="urlInput" type="text" placeholder="Enter URL..." />
+            </div>
+            <div class="actions">
+                <button id="saveButton" class="btn btn-primary" type="button">Save</button>
+                <button id="cancelButton" class="btn" type="button">Cancel</button>
+            </div>
         </div>
     </div>
 </body>
