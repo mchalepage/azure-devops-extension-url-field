@@ -12,3 +12,10 @@ yarn-error.log*
 # OS files
 .DS_Store
 Thumbs.db
+
+# Temporary files
+logo_options/
+create_logos.py
+create_better_logo.py
+create_final_logo.py
+images/logo_hires.png
