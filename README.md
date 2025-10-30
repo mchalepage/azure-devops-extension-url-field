@@ -1,4 +1,4 @@
-# URL Field Plus - a custom work item control
+# URL Field + - a custom work item control
 ## Azure DevOps extension
 
 ### Credits & History
@@ -9,7 +9,7 @@ This extension is based on the original [URL Field](https://github.com/krypu/azu
 **Original repository**: https://github.com/krypu/azure-devops-extension-url-field
 **License**: EUPL-1.2-or-later
 
-This "Plus" version extends the original with additional features while maintaining full backward compatibility with existing configurations.
+This enhanced version extends the original with additional features while maintaining full backward compatibility with existing configurations.
 
 ### Usage
 
