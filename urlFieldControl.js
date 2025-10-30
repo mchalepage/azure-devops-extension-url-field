@@ -46,9 +46,9 @@ function urlFieldUpdate (workItemServices) {
                         urlField.innerText = displayTitle;
                         urlField.href = displayUrl;
                         urlField.title = displayUrl;
-                        urlField.style.display = 'inline-block';
-                        editButton.style.display = 'inline-block';
-                        viewMode.style.display = 'block';
+                        urlField.style.display = '';
+                        editButton.style.display = '';
+                        viewMode.style.display = 'flex';
                         editMode.style.display = 'none';
                     } else {
                         // No URL yet, show edit mode for initial entry
@@ -60,7 +60,7 @@ function urlFieldUpdate (workItemServices) {
                 function showEditMode() {
                     urlInput.value = currentUrl;
                     viewMode.style.display = 'none';
-                    editMode.style.display = 'block';
+                    editMode.style.display = 'flex';
                     urlInput.focus();
                 }
 
@@ -125,10 +125,10 @@ function urlFieldUpdate (workItemServices) {
                 } else {
                     urlField.innerText = titleUrlText;
                     urlField.href = urlField.title = displayUrl;
-                    urlField.style.display = 'block';
+                    urlField.style.display = '';
                 }
 
-                viewMode.style.display = 'block';
+                viewMode.style.display = 'flex';
                 editButton.style.display = 'none';
                 editMode.style.display = 'none';
             }
