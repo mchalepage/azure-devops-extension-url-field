@@ -1,57 +1,43 @@
-# URL Field + - a custom work item control
-## Azure DevOps extension
+# URL Field + for Azure DevOps
 
-### Credits & History
+Enhanced work item control that keeps important URLs readable, editable, and in sync with the data on your Azure Boards work items.
 
-This extension is based on the original [URL Field](https://github.com/krypu/azure-devops-extension-url-field) extension created by **Krystian Andrzejewski (krypu)**. All original functionality and the core concept are credited to Krystian's excellent work.
+## What it does
+- Supports four usage patterns: static link, dynamic URL with `{field}` substitution, full field replacement, and inline editable URL entry.
+- Switches between compact view mode and edit mode without leaving the work item form; Save and Cancel keep the experience fast and predictable.
+- Optionally hides the link when the backing field is empty so boards stay uncluttered.
+- Works with any string-compatible field type, including multi-line text for longer URLs.
 
-**Original creator**: Krystian Andrzejewski
-**Original repository**: https://github.com/krypu/azure-devops-extension-url-field
-**License**: EUPL-1.2-or-later
+## Scenarios
+- **Static URL**: Provide only the `URL` input. Every work item shows the same link.
+- **Dynamic URL**: Include `{field}` in the `URL` input and pick a field. The placeholder is replaced with the field value (e.g. ServiceNow ticket numbers).
+- **Manual URL**: Use `{field}` as the entire URL template. The control renders whatever is stored in the chosen field.
+- **Inline editable URL**: Set `Editable URL Field` to `true` and select a field. Users edit directly in the control; changes are saved back to the field when they hit Save or press Enter.
 
-This enhanced version extends the original with additional features while maintaining full backward compatibility with existing configurations.
+## UX details
+- View mode shows a single link with the optional title and an Edit button. Empty values automatically prompt for entry.
+- Edit mode exposes a text box plus Save and Cancel buttons; the input receives focus for quick updates.
+- The link opens in a new tab (`target="_blank"`), keeping the work item context intact.
+- Hide-if-empty prevents blank anchors for teams that only fill the value occasionally.
 
-### Usage
+## Configure in Azure DevOps
+Add the control to a work item form and supply these inputs:
+- `URL` *(required)*: Literal URL or template containing `{field}`.
+- `Title`: Optional text shown instead of the raw URL.
+- `Field`: Backing work item field. Required for templates and editable mode.
+- `HideUrlIfEmptyField`: `true` to suppress the link when the field has no data.
+- `EditableField`: `true` to enable inline editing.
 
-This custom control allows you to add a clickable URL on your workitem form, that can optionally use another field as a variable in that URL. Depending on your needs, there are four different ways you can use this custom control extension:
+## Install and use
+- Install the published extension from the Marketplace or package the contents of this repo with `tfx extension create --manifest-globs vss-extension.json`.
+- In your process editor, add *URL Field +* to the desired group on the work item form and provide the inputs above.
+- For editable URLs, back the control with a multi-line text field if you expect URLs over 255 characters.
 
-1. A fixed static URL that is always the same for every workitem.
-2. A dynamic URL that combines a static base URL with some parametres taken from an other field.
-3. A manual URL that is fully based on an other field.
-4. **NEW**: An editable URL field where users can directly enter/paste URLs without needing a separate field.
+## Local development
+- `npm install` downloads the Azure DevOps SDK referenced by `index.html`.
+- `index.html` hosts the control shell and loads `urlFieldControl.js` for behavior.
+- Update the HTML and JS directly, then rebuild the VSIX package with `tfx extension create` when ready to test or publish.
 
-The typical scenario for this custom control is option number two, see the following example below:
-
-Let's assume that in your Azure DevOps instance, you have a custom field on a bug form. It's a simple string field that stores a ServiceNow incident number. Then, you can create an URL Field that would combine your SN web address with this SN number, e.g.:
-
-URL `https://company.service-now.com/nav_to.do?uri=incident.do?sysparm_query=number={field}`
-Field `ServiceNow Incident`
-
-When you open your work item, `{field}` will be replaced by a value from a selected field. Have a look at screenshots to see the output.
-
-For scenario 1, you simple need to skip `{field}` in URL option, so nothing is replaced (a fixed link).
-For scenario 3, you simple need to enter *only* `{field}` in URL option, so everything is replaced (a manual link, fully based on an another field).
-
-#### New: Editable URL Field (Scenario 4)
-
-For scenario 4, enable the "Editable URL Field" option. This allows users to directly enter or paste URLs without needing to create a separate field on the form:
-
-Configuration:
-- URL: `{field}` (or leave empty)
-- Field: Select any string field to store the URL
-- Editable URL Field: `true`
-- Title: (optional) Display text for the link
-
-When configured, users will see an input box where they can type or paste a URL. The URL is automatically saved to the selected field and displayed as a clickable link below the input. This eliminates the need for two separate fields on your form.
-
-### License
-
-Licensed under the EUPL-1.2-or-later
-
-**Copyright Notice:**
-- Original work: Copyright © Krystian Andrzejewski (krypu)
-- Modifications (v2.0.0+): Copyright © 2025 McHale
-
-Full license text: 23 official languages available at https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
-
-This project is a derivative work licensed under the same terms as the original (EUPL-1.2-or-later).
+## Credits and license
+- Based on the original [URL Field](https://github.com/krypu/azure-devops-extension-url-field) by Krystian Andrzejewski (EUPL-1.2-or-later).
+- Enhancements © 2025 McHale. Distributed under EUPL-1.2-or-later; see `LICENSE.txt` for the full text.
