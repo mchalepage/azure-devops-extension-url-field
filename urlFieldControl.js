@@ -106,18 +106,7 @@ function urlFieldUpdate (workItemServices) {
                     urlInput.setAttribute('data-listener-added', 'true');
                 }
 
-                // Show Edit button on hover of viewMode
-                if (!viewMode.hasAttribute('data-hover-added')) {
-                    viewMode.addEventListener('mouseenter', function() {
-                        editButton.style.display = 'inline-block';
-                    });
-                    viewMode.addEventListener('mouseleave', function() {
-                        editButton.style.display = 'inline-block'; // Keep visible
-                    });
-                    viewMode.setAttribute('data-hover-added', 'true');
-                }
-
-                // Initial display
+                // Initial display - Edit button is always visible in view mode
                 currentUrl = fieldValue || '';
                 showViewMode();
 
