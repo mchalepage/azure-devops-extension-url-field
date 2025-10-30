@@ -16,84 +16,135 @@ function urlFieldUpdate (workItemServices) {
 
             var urlInput = document.getElementById('urlInput');
             var urlField = document.getElementById('urlField');
+            var viewMode = document.getElementById('viewMode');
+            var editMode = document.getElementById('editMode');
+            var editButton = document.getElementById('editButton');
+            var saveButton = document.getElementById('saveButton');
+            var cancelButton = document.getElementById('cancelButton');
 
-            // Handle editable field mode
+            // Handle editable field mode with improved UX
             if (editableField) {
-                // Show the input field
-                urlInput.style.display = 'block';
-                urlInput.value = fieldValue || '';
+                var currentUrl = fieldValue || '';
 
-                // Ensure the link field is also visible
-                urlField.style.display = 'block';
+                // Function to switch to viewing mode
+                function showViewMode() {
+                    var displayUrl = currentUrl;
+                    var displayTitle = titleUrlText;
 
-                // Set up input change handler (only once)
-                if (!urlInput.hasAttribute('data-listener-added')) {
-                    urlInput.addEventListener('blur', function() {
+                    // Handle URL template replacement
+                    if (url === '{field}' || isEmpty(url)) {
+                        displayUrl = currentUrl;
+                    } else {
+                        displayUrl = url.replace('{field}', currentUrl);
+                    }
+
+                    if (isEmpty(displayTitle)) {
+                        displayTitle = displayUrl;
+                    }
+
+                    if (!isEmpty(displayUrl)) {
+                        urlField.innerText = displayTitle;
+                        urlField.href = displayUrl;
+                        urlField.title = displayUrl;
+                        urlField.style.display = 'inline-block';
+                        editButton.style.display = 'inline-block';
+                        viewMode.style.display = 'block';
+                        editMode.style.display = 'none';
+                    } else {
+                        // No URL yet, show edit mode for initial entry
+                        showEditMode();
+                    }
+                }
+
+                // Function to switch to editing mode
+                function showEditMode() {
+                    urlInput.value = currentUrl;
+                    viewMode.style.display = 'none';
+                    editMode.style.display = 'block';
+                    urlInput.focus();
+                }
+
+                // Edit button click handler
+                if (!editButton.hasAttribute('data-listener-added')) {
+                    editButton.addEventListener('click', function() {
+                        showEditMode();
+                    });
+                    editButton.setAttribute('data-listener-added', 'true');
+                }
+
+                // Save button click handler
+                if (!saveButton.hasAttribute('data-listener-added')) {
+                    saveButton.addEventListener('click', function() {
                         var newValue = urlInput.value.trim();
                         service.setFieldValue(fieldName, newValue).then(function() {
-                            // Update the link after saving
-                            updateLink(newValue, titleUrlText, url, hideUrlIfEmptyField, urlField);
+                            currentUrl = newValue;
+                            showViewMode();
                         });
                     });
+                    saveButton.setAttribute('data-listener-added', 'true');
+                }
 
-                    // Also handle Enter key
-                    urlInput.addEventListener('keypress', function(e) {
-                        if (e.key === 'Enter') {
-                            urlInput.blur(); // Trigger the blur event to save
+                // Cancel button click handler
+                if (!cancelButton.hasAttribute('data-listener-added')) {
+                    cancelButton.addEventListener('click', function() {
+                        // Revert to current saved value
+                        urlInput.value = currentUrl;
+                        if (!isEmpty(currentUrl)) {
+                            showViewMode();
                         }
                     });
+                    cancelButton.setAttribute('data-listener-added', 'true');
+                }
 
+                // Enter key in input = Save
+                if (!urlInput.hasAttribute('data-listener-added')) {
+                    urlInput.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            saveButton.click();
+                        }
+                    });
                     urlInput.setAttribute('data-listener-added', 'true');
                 }
 
-                // Update the link based on current input value
-                updateLink(fieldValue, titleUrlText, url, hideUrlIfEmptyField, urlField);
+                // Show Edit button on hover of viewMode
+                if (!viewMode.hasAttribute('data-hover-added')) {
+                    viewMode.addEventListener('mouseenter', function() {
+                        editButton.style.display = 'inline-block';
+                    });
+                    viewMode.addEventListener('mouseleave', function() {
+                        editButton.style.display = 'inline-block'; // Keep visible
+                    });
+                    viewMode.setAttribute('data-hover-added', 'true');
+                }
+
+                // Initial display
+                currentUrl = fieldValue || '';
+                showViewMode();
+
             } else {
                 // Original behavior - not editable
-                urlInput.style.display = 'none';
-                url = url.replace('{field}', fieldValue);
+                var displayUrl = url.replace('{field}', fieldValue);
 
                 if (isEmpty(titleUrlText)) {
-                    titleUrlText = url;
+                    titleUrlText = displayUrl;
                 }
 
                 if (hideUrlIfEmptyField && isEmpty(fieldValue)) {
                     urlField.innerText = "";
                     urlField.href = urlField.title = "";
+                    urlField.style.display = 'none';
                 } else {
                     urlField.innerText = titleUrlText;
-                    urlField.href = urlField.title = url;
+                    urlField.href = urlField.title = displayUrl;
+                    urlField.style.display = 'block';
                 }
+
+                viewMode.style.display = 'block';
+                editButton.style.display = 'none';
+                editMode.style.display = 'none';
             }
         });
     });
-}
-
-function updateLink(fieldValue, titleUrlText, urlTemplate, hideUrlIfEmptyField, urlField) {
-    var url = urlTemplate.replace('{field}', fieldValue || '');
-
-    // If URL template is just {field} or empty, use the field value directly as the URL
-    if (urlTemplate === '{field}' || isEmpty(urlTemplate)) {
-        url = fieldValue || '';
-    }
-
-    if (isEmpty(titleUrlText)) {
-        titleUrlText = url;
-    }
-
-    if (hideUrlIfEmptyField && isEmpty(fieldValue)) {
-        urlField.innerText = "";
-        urlField.href = urlField.title = "";
-        urlField.style.display = 'none';
-    } else if (!isEmpty(url)) {
-        urlField.innerText = titleUrlText;
-        urlField.href = urlField.title = url;
-        urlField.style.display = 'block';
-    } else {
-        urlField.innerText = "";
-        urlField.href = urlField.title = "";
-        urlField.style.display = 'none';
-    }
 }
 
 VSS.require(["TFS/WorkItemTracking/Services"], function(workItemServices) {

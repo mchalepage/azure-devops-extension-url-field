@@ -21,8 +21,18 @@
 	<script src="urlFieldControl.js"></script>
     
     <div id="container" style="width: 100%;">
-        <input id="urlInput" type="text" placeholder="Enter URL..." style="display: none; width: 100%; padding: 4px 6px; box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 4px;" />
-        <a id="urlField" target="_blank" style="padding-left: 6px; width: 100%; display: block; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; color: #0078d4; text-decoration: underline; cursor: pointer;"></a>
+        <!-- Viewing mode: Link + Edit button -->
+        <div id="viewMode" style="display: none;">
+            <a id="urlField" target="_blank" style="padding-left: 6px; color: #0078d4; text-decoration: underline; cursor: pointer; display: inline-block;"></a>
+            <button id="editButton" style="margin-left: 8px; padding: 2px 8px; font-size: 12px; border: 1px solid #ccc; background: #f3f3f3; cursor: pointer; border-radius: 2px; display: none;">Edit</button>
+        </div>
+
+        <!-- Editing mode: Input + Save/Cancel buttons -->
+        <div id="editMode" style="display: none;">
+            <input id="urlInput" type="text" placeholder="Enter URL..." style="width: 70%; padding: 4px 6px; box-sizing: border-box; border: 1px solid #ccc; margin-bottom: 4px;" />
+            <button id="saveButton" style="margin-left: 4px; padding: 4px 12px; font-size: 12px; border: 1px solid #0078d4; background: #0078d4; color: white; cursor: pointer; border-radius: 2px;">Save</button>
+            <button id="cancelButton" style="margin-left: 4px; padding: 4px 12px; font-size: 12px; border: 1px solid #ccc; background: #f3f3f3; cursor: pointer; border-radius: 2px;">Cancel</button>
+        </div>
     </div>
 </body>
 </html>
