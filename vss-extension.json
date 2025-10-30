@@ -1,10 +1,10 @@
 {
   "manifestVersion": 1,
-  "id": "url-field",
-  "publisher": "krypu",
-  "version": "1.1.1",
-  "name": "URL Field",
-  "description": "A work item custom control to show a clickable URL.",
+  "id": "url-field-plus",
+  "publisher": "YOUR_PUBLISHER_ID",
+  "version": "2.0.0",
+  "name": "URL Field Plus",
+  "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
   "public": true,
   "categories": ["Azure Boards"],
   "icons": {
@@ -31,17 +31,17 @@
 ],
   "repository": {
       "type": "git",
-      "uri": "https://github.com/krypu/azure-devops-extension-url-field"
+      "uri": "https://github.com/mchalepage/azure-devops-extension-url-field"
   },
   "links": {
       "repository": {
-          "uri": "https://github.com/krypu/azure-devops-extension-url-field"
+          "uri": "https://github.com/mchalepage/azure-devops-extension-url-field"
       },
       "issues": {
-          "uri": "https://github.com/krypu/azure-devops-extension-url-field/issues"
+          "uri": "https://github.com/mchalepage/azure-devops-extension-url-field/issues"
       },
       "license": {
-          "uri": "https://github.com/krypu/azure-devops-extension-url-field/blob/main/LICENSE.txt"
+          "uri": "https://github.com/mchalepage/azure-devops-extension-url-field/blob/main/LICENSE.txt"
       }
   },
   "screenshots": [
@@ -57,15 +57,15 @@
   ],
   "contributions": [
       {
-          "id": "url-field",
+          "id": "url-field-plus",
           "type": "ms.vss-work-web.work-item-form-control",
-    "description": "A work item custom control to show a clickable URL.",
+    "description": "Enhanced work item custom control for clickable and editable URLs.",
           "targets": [
               "ms.vss-work-web.work-item-form"
           ],
           "properties": {
-              "name": "URL Field",
-              "description": "A work item custom control to show a clickable URL.",
+              "name": "URL Field Plus",
+              "description": "Enhanced work item custom control for clickable and editable URLs.",
               "uri": "index.html",
               "height": "33",
               "inputs": [
