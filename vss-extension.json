@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "url-field-plus",
   "publisher": "McHale",
-    "version": "2.3.0",
+        "version": "2.3.1",
   "name": "URL Field +",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
   "public": true,
@@ -67,7 +67,7 @@
               "name": "URL Field +",
               "description": "Enhanced work item custom control for clickable and editable URLs.",
               "uri": "index.html",
-              "height": "33",
+              "height": "48",
               "inputs": [
                   {
                       "id": "Url",
@@ -132,7 +132,23 @@
           "addressable": true
       },
       {
+          "path": "urlFieldControl.css",
+          "addressable": true
+      },
+      {
           "path": "images/logo.png",
+          "addressable": true
+      },
+      {
+          "path": "images/icon-edit-16.svg",
+          "addressable": true
+      },
+      {
+          "path": "images/icon-check-16.svg",
+          "addressable": true
+      },
+      {
+          "path": "images/icon-cancel-16.svg",
           "addressable": true
       },
       {
