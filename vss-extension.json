@@ -108,6 +108,15 @@
                         "dataType": "Boolean",
                         "isRequired": true
                       }
+                    },
+                  {
+                      "id": "EditableField",
+                      "name": "Editable URL Field (true/false)",
+                      "description": "When true, allows users to directly enter/edit URLs in this control without needing a separate field. The Field parameter must be set to store the URL value.",
+                      "validation": {
+                        "dataType": "Boolean",
+                        "isRequired": false
+                      }
                     }
               ]
           }
