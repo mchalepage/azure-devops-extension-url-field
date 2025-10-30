@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "url-field-plus",
   "publisher": "McHale",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "name": "URL Field Plus",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
   "public": true,
@@ -90,10 +90,10 @@
                   {
                       "id": "Field",
                       "name": "Field",
-                      "description": "Select a field for a variable to be used in URL building.",
+                      "description": "Select a field for a variable to be used in URL building. For editable URLs, use a multi-line text field to avoid 255 character limit.",
                       "type": "WorkitemField",
                       "properties": {
-                          "workItemFieldTypes": ["String", "Integer", "Double"]
+                          "workItemFieldTypes": ["String", "Integer", "Double", "PlainText", "HTML"]
                       },
                       "validation": {
                           "dataType": "String",
