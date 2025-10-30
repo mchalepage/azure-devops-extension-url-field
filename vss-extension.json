@@ -1,7 +1,7 @@
 {
   "manifestVersion": 1,
   "id": "url-field-plus",
-  "publisher": "YOUR_PUBLISHER_ID",
+  "publisher": "McHale",
   "version": "2.0.0",
   "name": "URL Field Plus",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
