@@ -48,4 +48,10 @@ When configured, users will see an input box where they can type or paste a URL.
 
 Licensed under the EUPL-1.2-or-later
 
-Full text in 23 official languages is available at https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+**Copyright Notice:**
+- Original work: Copyright © Krystian Andrzejewski (krypu)
+- Modifications (v2.0.0+): Copyright © 2025 McHale
+
+Full license text: 23 official languages available at https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12
+
+This project is a derivative work licensed under the same terms as the original (EUPL-1.2-or-later).
