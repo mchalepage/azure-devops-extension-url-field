@@ -16,3 +16,5 @@ Thumbs.db
 # Temporary files
 logo_options/
 create_logos.py
+create_better_logo.py
+images/logo_hires.png
