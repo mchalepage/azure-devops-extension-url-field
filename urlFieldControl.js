@@ -23,6 +23,9 @@ function urlFieldUpdate (workItemServices) {
                 urlInput.style.display = 'block';
                 urlInput.value = fieldValue || '';
 
+                // Ensure the link field is also visible
+                urlField.style.display = 'block';
+
                 // Set up input change handler (only once)
                 if (!urlInput.hasAttribute('data-listener-added')) {
                     urlInput.addEventListener('blur', function() {
@@ -81,12 +84,15 @@ function updateLink(fieldValue, titleUrlText, urlTemplate, hideUrlIfEmptyField, 
     if (hideUrlIfEmptyField && isEmpty(fieldValue)) {
         urlField.innerText = "";
         urlField.href = urlField.title = "";
+        urlField.style.display = 'none';
     } else if (!isEmpty(url)) {
         urlField.innerText = titleUrlText;
         urlField.href = urlField.title = url;
+        urlField.style.display = 'block';
     } else {
         urlField.innerText = "";
         urlField.href = urlField.title = "";
+        urlField.style.display = 'none';
     }
 }
 

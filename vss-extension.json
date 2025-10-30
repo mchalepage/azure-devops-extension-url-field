@@ -2,8 +2,8 @@
   "manifestVersion": 1,
   "id": "url-field-plus",
   "publisher": "McHale",
-  "version": "2.0.1",
-  "name": "URL Field Plus",
+  "version": "2.0.2",
+  "name": "URL Field +",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
   "public": true,
   "categories": ["Azure Boards"],
@@ -64,7 +64,7 @@
               "ms.vss-work-web.work-item-form"
           ],
           "properties": {
-              "name": "URL Field Plus",
+              "name": "URL Field +",
               "description": "Enhanced work item custom control for clickable and editable URLs.",
               "uri": "index.html",
               "height": "33",
