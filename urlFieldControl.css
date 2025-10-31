@@ -1,33 +1,17 @@
 :root,
 html {
-    --url-field-fg: #242424;
-    --url-field-surface: #f3f3f3;
-    --url-field-border: #c8c8c8;
-    --url-field-link: #0078d4;
-    --url-field-focus-ring: #a6d9ff;
-    --url-field-primary-bg: #0078d4;
-    --url-field-primary-border: #0078d4;
-    --url-field-primary-fg: #ffffff;
-    --url-field-icon: #242424;
-    --url-field-primary-icon: #ffffff;
-}
-
-body.vss-theme-dark,
-body.theme-dark,
-html.vss-theme-dark,
-html.theme-dark,
-body[data-vss-theme="dark"],
-html[data-vss-theme="dark"] {
-    --url-field-fg: #f3f3f3;
-    --url-field-surface: #2b2b2b;
-    --url-field-border: #3f3f3f;
-    --url-field-link: #6cb8f6;
-    --url-field-focus-ring: #3a96dd;
-    --url-field-primary-bg: #106ebe;
-    --url-field-primary-border: #106ebe;
-    --url-field-primary-fg: #ffffff;
-    --url-field-icon: #f3f3f3;
-    --url-field-primary-icon: #ffffff;
+    --url-field-fg: var(--text-primary-color, #242424);
+    --url-field-bg: var(--background-color, #f5f5f5);
+    --url-field-surface: var(--panel-background-color, var(--url-field-bg));
+    --url-field-border: var(--text-secondary-color, #c8c8c8);
+    --url-field-link: var(--communication-foreground, #0078d4);
+    --url-field-focus-ring: var(--focus-border-color, #60aaff);
+    --url-field-primary-bg: var(--communication-background, #0078d4);
+    --url-field-primary-border: var(--communication-border-color, #0078d4);
+    --url-field-primary-fg: var(--text-on-color, #ffffff);
+    --url-field-icon: var(--text-primary-color, #242424);
+    --url-field-input-surface: var(--input-background-color, #ffffff);
+    --url-field-input-border: var(--input-border-color, #c8c8c8);
 }
 
 body.vss-theme-high-contrast,
@@ -38,16 +22,12 @@ html.theme-high-contrast,
 html.vss-high-contrast,
 body[data-vss-theme="high-contrast"],
 html[data-vss-theme="high-contrast"] {
-    --url-field-fg: #ffffff;
-    --url-field-surface: #000000;
     --url-field-border: #ffffff;
-    --url-field-link: #ffffff;
     --url-field-focus-ring: #ffffff;
+    --url-field-icon: #ffffff;
     --url-field-primary-bg: #000000;
     --url-field-primary-border: #ffffff;
     --url-field-primary-fg: #ffffff;
-    --url-field-icon: #ffffff;
-    --url-field-primary-icon: #ffffff;
 }
 
 body {
@@ -55,22 +35,28 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     font-size: 14px;
     color: var(--url-field-fg);
+    background: transparent;
 }
 
 #container {
     width: 100%;
     box-sizing: border-box;
-    padding: 4px 0;
+    padding: 0;
+    background: var(--url-field-surface);
 }
 
 .url-field {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
     width: 100%;
     min-width: 0;
+    min-height: 32px;
+    max-height: 38px;
+    padding: 2px 0;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .url-text,
@@ -87,6 +73,7 @@ body {
     color: var(--url-field-link);
     text-decoration: underline;
     cursor: pointer;
+    align-self: center;
 }
 
 .url-text:focus {
@@ -96,17 +83,18 @@ body {
 
 .url-input input {
     width: 100%;
-    padding: 6px 8px;
-    border: 1px solid var(--url-field-border);
+    height: 28px;
+    padding: 2px 8px;
+    border: 1px solid var(--url-field-input-border);
     border-radius: 2px;
-    box-sizing: border-box;
-    background: var(--url-field-surface);
+    background: var(--url-field-input-surface);
     color: var(--url-field-fg);
     font: inherit;
+    box-sizing: border-box;
 }
 
 .url-input input:focus {
-    border-color: var(--url-field-link);
+    border-color: var(--url-field-focus-ring);
     outline: 2px solid var(--url-field-focus-ring);
 }
 
@@ -114,49 +102,34 @@ body {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
     min-width: 0;
-    overflow: visible;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 4px 9px;
-    font-size: 0.75rem;
-    line-height: 1.1;
+    width: 26px;
+    height: 26px;
+    padding: 0;
     border: 1px solid var(--url-field-border);
     border-radius: 2px;
     background: var(--url-field-surface);
-    color: var(--url-field-fg);
-    cursor: pointer;
-    white-space: nowrap;
-    box-sizing: border-box;
-    min-height: 26px;
-}
-
-.btn-icon {
-    width: 28px;
-    min-width: 28px;
-    min-height: 28px;
-    padding: 0;
-}
-
-.btn-icon .bowtie-icon {
-    font-size: 16px;
-    line-height: 1;
     color: var(--url-field-icon);
-}
-
-.btn-primary .bowtie-icon {
-    color: var(--url-field-primary-icon);
+    cursor: pointer;
 }
 
 .btn-primary {
     border-color: var(--url-field-primary-border);
     background: var(--url-field-primary-bg);
     color: var(--url-field-primary-fg);
+}
+
+.btn-icon .bowtie-icon {
+    font-size: 14px;
+    line-height: 1;
+    color: currentColor;
 }
 
 .btn:focus {
@@ -176,8 +149,13 @@ body {
 }
 
 @media (max-width: 480px) {
-    .btn {
-        padding: 3px 8px;
-        font-size: 0.7rem;
+    .url-field {
+        flex-wrap: wrap;
+        max-height: none;
+        padding-bottom: 4px;
+    }
+
+    .actions {
+        margin-top: 4px;
     }
 }

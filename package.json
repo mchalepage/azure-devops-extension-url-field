@@ -1,6 +1,6 @@
 {
   "name": "url-field-plus",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building. Based on the original URL Field by Krystian Puchalski.",
   "main": "index.js",
   "scripts": {

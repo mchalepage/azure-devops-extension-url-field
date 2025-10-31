@@ -17,7 +17,7 @@ Enhanced work item control that keeps important URLs readable, editable, and in 
 ## UX details
 - View mode shows a single link with the optional title and an Edit button. Empty values automatically prompt for entry.
 - Edit mode exposes a text box plus Update and Cancel icon buttons (using the built-in Bowtie icon font) with accessible labels; the input receives focus for quick updates.
-- Responsive flex layout keeps the link/input and actions on one line when there is room, then wraps cleanly without clipping on smaller screens; the control surface is taller so wrapped buttons stay visible.
+- Responsive flex layout keeps the link/input and actions on one line when there is room, then wraps cleanly without clipping on smaller screens; the surface stays within the 32–38px height Azure DevOps allocates for single-line fields.
 - Honors Azure DevOps light, dark, and high-contrast themes so the control stays legible in every mode.
 - The link opens in a new tab (`target="_blank"`), keeping the work item context intact.
 - Hide-if-empty prevents blank anchors for teams that only fill the value occasionally.
@@ -38,7 +38,7 @@ Add the control to a work item form and supply these inputs:
 ## Local development
 - `npm install` downloads the Azure DevOps SDK referenced by `index.html`.
 - `index.html` hosts the control shell and loads `urlFieldControl.js` for behavior.
-- Layout and styling live in `urlFieldControl.css`; tweak spacing or responsiveness there.
+- Layout and styling live in `urlFieldControl.css`; theme tokens from Azure DevOps drive colors so updates stay in sync with the host UI. Tweak spacing or responsiveness there.
 - Update the HTML and JS directly, then rebuild the VSIX package with `tfx extension create` when ready to test or publish.
 
 ## Credits and license
