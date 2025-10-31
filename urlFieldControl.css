@@ -103,17 +103,17 @@ body {
     display: flex;
     flex: 0 0 auto;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     min-width: 0;
-    padding-right: 6px;
+    padding-right: 4px;
 }
 
 .btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     padding: 0;
     border: 1px solid var(--url-field-border);
     border-radius: 2px;
@@ -129,7 +129,7 @@ body {
 }
 
 .btn-icon .bowtie-icon {
-    font-size: 14px;
+    font-size: 10px;
     line-height: 1;
     color: currentColor;
 }
