@@ -72,7 +72,7 @@ function urlFieldUpdate (workItemServices) {
                     editButton.setAttribute('data-listener-added', 'true');
                 }
 
-                // Save button click handler
+                // Update button click handler
                 if (!saveButton.hasAttribute('data-listener-added')) {
                     saveButton.addEventListener('click', function() {
                         var newValue = urlInput.value.trim();
@@ -96,7 +96,7 @@ function urlFieldUpdate (workItemServices) {
                     cancelButton.setAttribute('data-listener-added', 'true');
                 }
 
-                // Enter key in input = Save
+                // Enter key in input triggers Update
                 if (!urlInput.hasAttribute('data-listener-added')) {
                     urlInput.addEventListener('keypress', function(e) {
                         if (e.key === 'Enter') {

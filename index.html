@@ -26,7 +26,10 @@
         <div id="viewMode" class="url-field" style="display: none;">
             <a id="urlField" class="url-text" target="_blank" rel="noopener noreferrer"></a>
             <div class="actions">
-                <button id="editButton" class="btn" type="button">Edit</button>
+                <button id="editButton" class="btn btn-icon" type="button" aria-label="Edit" title="Edit">
+                    <span class="bowtie-icon bowtie-edit" aria-hidden="true"></span>
+                    <span class="sr-only">Edit</span>
+                </button>
             </div>
         </div>
 
@@ -36,8 +39,14 @@
                 <input id="urlInput" type="text" placeholder="Enter URL..." />
             </div>
             <div class="actions">
-                <button id="saveButton" class="btn btn-primary" type="button">Save</button>
-                <button id="cancelButton" class="btn" type="button">Cancel</button>
+                <button id="saveButton" class="btn btn-primary btn-icon" type="button" aria-label="Update" title="Update">
+                    <span class="bowtie-icon bowtie-check" aria-hidden="true"></span>
+                    <span class="sr-only">Update</span>
+                </button>
+                <button id="cancelButton" class="btn btn-icon" type="button" aria-label="Cancel" title="Cancel">
+                    <span class="bowtie-icon bowtie-status-no" aria-hidden="true"></span>
+                    <span class="sr-only">Cancel</span>
+                </button>
             </div>
         </div>
     </div>

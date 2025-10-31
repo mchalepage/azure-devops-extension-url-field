@@ -1,8 +1,8 @@
 {
   "manifestVersion": 1,
   "id": "url-field-plus",
-  "publisher": "McHale",
-  "version": "2.2.0",
+    "publisher": "McHale",
+            "version": "2.3.7",
   "name": "URL Field +",
   "description": "Enhanced work item custom control for clickable and editable URLs with dynamic URL building.",
   "public": true,
@@ -67,12 +67,12 @@
               "name": "URL Field +",
               "description": "Enhanced work item custom control for clickable and editable URLs.",
               "uri": "index.html",
-              "height": "33",
+              "height": "36",
               "inputs": [
                   {
                       "id": "Url",
                       "name": "URL",
-                      "description": "Static URL (https://example.com) OR Dynamic URL with {field} placeholder (https://example.com/{field}) OR {field} for editable/manual URLs. The {field} placeholder will be replaced with the value from the Field parameter below.",
+                      "description": "Static URL (https://example.com) OR Dynamic URL with {field} placeholder (https://example.com/{field}) OR {field} for editable/manual URLs. The {field} placeholder is replaced with the value from the Field parameter below.",
                       "validation": {
                           "dataType": "String",
                           "isRequired": true
@@ -90,7 +90,7 @@
                   {
                       "id": "Field",
                       "name": "Field",
-                      "description": "REQUIRED for dynamic URLs (with {field}), editable URLs, or manual URLs. OPTIONAL only for static URLs. For editable URLs, use a multi-line text field to support long URLs without the 255 character limit.",
+                      "description": "REQUIRED for dynamic URLs (with {field}), editable URLs, or manual URLs. OPTIONAL for static URLs. For inline editing, point at a field that can store the values you expect (e.g. multi-line text for long URLs).",
                       "type": "WorkitemField",
                       "properties": {
                           "workItemFieldTypes": ["String", "Integer", "Double", "PlainText", "HTML"]
@@ -103,7 +103,7 @@
                   {
                       "id": "HideUrlIfEmptyField",
                       "name": "Hide if empty Field (true/false)",
-                      "description": "Hide the URL when Field value is empty (true/false)",
+                      "description": "Hide the link when the Field value is empty. Default is false.",
                       "validation": {
                         "dataType": "Boolean",
                         "isRequired": true
@@ -112,7 +112,7 @@
                   {
                       "id": "EditableField",
                       "name": "Editable URL Field (true/false)",
-                      "description": "When true, allows users to directly enter/edit URLs in this control without needing a separate field. The Field parameter must be set to store the URL value.",
+                      "description": "When true, shows inline edit/update/cancel icons so users can edit directly in the control. Requires the Field parameter to store the URL value.",
                       "validation": {
                         "dataType": "Boolean",
                         "isRequired": false
@@ -129,6 +129,10 @@
       },
       {
           "path": "urlFieldControl.js",
+          "addressable": true
+      },
+      {
+          "path": "urlFieldControl.css",
           "addressable": true
       },
       {
