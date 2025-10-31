@@ -140,18 +140,6 @@
           "addressable": true
       },
       {
-          "path": "images/icon-edit-16.svg",
-          "addressable": true
-      },
-      {
-          "path": "images/icon-check-16.svg",
-          "addressable": true
-      },
-      {
-          "path": "images/icon-cancel-16.svg",
-          "addressable": true
-      },
-      {
           "path": "README.md",
           "addressable": true
       },

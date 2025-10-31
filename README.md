@@ -16,7 +16,7 @@ Enhanced work item control that keeps important URLs readable, editable, and in 
 
 ## UX details
 - View mode shows a single link with the optional title and an Edit button. Empty values automatically prompt for entry.
-- Edit mode exposes a text box plus Update and Cancel icon buttons with accessible labels; the input receives focus for quick updates.
+- Edit mode exposes a text box plus Update and Cancel icon buttons (using the built-in Bowtie icon font) with accessible labels; the input receives focus for quick updates.
 - Responsive flex layout keeps the link/input and actions on one line when there is room, then wraps cleanly without clipping on smaller screens; the control surface is taller so wrapped buttons stay visible.
 - Honors Azure DevOps light, dark, and high-contrast themes so the control stays legible in every mode.
 - The link opens in a new tab (`target="_blank"`), keeping the work item context intact.

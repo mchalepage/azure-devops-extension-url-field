@@ -143,36 +143,14 @@ body {
     padding: 0;
 }
 
-.btn-icon .icon {
-    width: 16px;
-    height: 16px;
-    display: block;
-    background-color: var(--url-field-icon);
-    mask-repeat: no-repeat;
-    mask-position: center;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    -webkit-mask-size: contain;
+.btn-icon .bowtie-icon {
+    font-size: 16px;
+    line-height: 1;
+    color: var(--url-field-icon);
 }
 
-.btn-icon .icon-edit {
-    mask-image: url("images/icon-edit-16.svg");
-    -webkit-mask-image: url("images/icon-edit-16.svg");
-}
-
-.btn-icon .icon-update {
-    mask-image: url("images/icon-check-16.svg");
-    -webkit-mask-image: url("images/icon-check-16.svg");
-}
-
-.btn-icon .icon-cancel {
-    mask-image: url("images/icon-cancel-16.svg");
-    -webkit-mask-image: url("images/icon-cancel-16.svg");
-}
-
-.btn-primary .icon {
-    background-color: var(--url-field-primary-icon);
+.btn-primary .bowtie-icon {
+    color: var(--url-field-primary-icon);
 }
 
 .btn-primary {
